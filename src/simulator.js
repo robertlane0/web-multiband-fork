@@ -123,7 +123,7 @@
     // 2. Timing and Audio Engine
     function start() {
         ctx = new AudioContext();
-        var now = Date.now();
+        var now = window.TimeSync.now().getTime();
         var t = Math.floor(now / (60 * 1000)) * 60 * 1000;
         var next = t + 60 * 1000;
         var delay = next - now - 1000;

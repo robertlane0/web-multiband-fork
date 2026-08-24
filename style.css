@@ -195,6 +195,116 @@ a:hover {
     color: #0f172a;
 }
 
+/* Time Sync Control */
+.sync-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+}
+
+.sync-toggle {
+    display: inline-flex;
+    background: var(--bg-color);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3px;
+    gap: 2px;
+    transition: var(--transition-theme);
+}
+
+.sync-radio {
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.sync-radio input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.sync-radio span {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 18px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    white-space: nowrap;
+    transition: var(--transition-theme);
+}
+
+.sync-radio input:checked + span {
+    background: var(--accent);
+    color: #fff;
+}
+
+[data-theme="dark"] .sync-radio input:checked + span {
+    color: #0f172a;
+}
+
+.sync-radio input:focus-visible + span {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.sync-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+
+.sync-status::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.sync-status.status-synced {
+    color: #16a34a;
+}
+
+.sync-status.status-synced::before {
+    background: #22c55e;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
+}
+
+.sync-status.status-syncing::before {
+    background: #eab308;
+    animation: pulse-dot 1.2s ease-in-out infinite;
+}
+
+.sync-status.status-failed {
+    color: #ef4444;
+}
+
+.sync-status.status-failed::before {
+    background: #ef4444;
+}
+
+[data-theme="dark"] .sync-status.status-synced {
+    color: #4ade80;
+}
+
+[data-theme="dark"] .sync-status.status-failed {
+    color: #f87171;
+}
+
 /* Pill Tabs (Protocol Selector) */
 .protocol-pills {
     display: flex;
@@ -616,6 +726,11 @@ canvas {
 
     .time-primary {
         font-size: 2rem;
+    }
+
+    .sync-control {
+        flex-direction: column;
+        gap: 8px;
     }
 
     .protocol-pills {

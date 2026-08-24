@@ -7,7 +7,7 @@ window.TimeProtocols.jjy = (function() {
     ];
 
     function getleapsecond() {
-        var now = Date.now();
+        var now = window.TimeSync.now().getTime();
         for(var i = 0; i < plus_leapsecond_list.length; i++) {
             var diff = plus_leapsecond_list[i] - now;
             if (diff > 0 && diff <= 31*24*60*60*1000) return 1;
@@ -37,7 +37,7 @@ window.TimeProtocols.jjy = (function() {
                 date = new Date(dateUTC.getTime() + 9 * 60 * 60 * 1000);
             }
 
-            var now = Date.now();
+            var now = window.TimeSync.now().getTime();
 
             // Audio offset must ALWAYS be tied to the local machine's tick, not the shifted timezone
             var start = date_loc.getTime();

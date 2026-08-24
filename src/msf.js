@@ -33,7 +33,7 @@ window.TimeProtocols.msf = (function() {
             // MSF must encode the time of the NEXT minute (+ 60,000 ms)
             var dateUK = new Date(date_loc.getTime() + offsetMs + 60000);
 
-            var now = Date.now();
+            var now = window.TimeSync.now().getTime();
             var start = date_loc.getTime();
             var offset = (start - now) / 1000 + ctx.currentTime;
 

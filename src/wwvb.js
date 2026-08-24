@@ -22,7 +22,7 @@ window.TimeProtocols.wwvb = (function() {
         name: "WWVB (North America)",
 
         schedule: function(date, ctx) {
-            var now = Date.now();
+            var now = window.TimeSync.now().getTime();
             var start = date.getTime();
             var offset = (start - now) / 1000 + ctx.currentTime;
 

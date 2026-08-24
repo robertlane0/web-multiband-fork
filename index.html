@@ -59,6 +59,20 @@
         <div class="time-primary" id="time-primary">--:--:--</div>
         <div class="time-secondary" id="time-secondary">Select a protocol</div>
         <div class="time-badges" id="time-badges"></div>
+
+        <div class="sync-control">
+          <div class="sync-toggle" role="radiogroup" aria-label="Time synchronization">
+            <label class="sync-radio">
+              <input type="radio" name="time-sync" value="yes" checked>
+              <span>Time Sync: Yes</span>
+            </label>
+            <label class="sync-radio">
+              <input type="radio" name="time-sync" value="no">
+              <span>Time Sync: No</span>
+            </label>
+          </div>
+          <span class="sync-status status-syncing" id="sync-status">Syncing&hellip;</span>
+        </div>
       </div>
 
       <div class="controls">
@@ -107,7 +121,7 @@
           </button>
           <div class="accordion-body">
             <p>
-              Sync your computer's time with an accurate time source (e.g., <a href="https://time.is/" target="_blank" rel="noopener">time.is</a>, or a NTP server such as <a href="https://www.ntppool.org/" target="_blank" rel="noopener">pool.ntp.org</a>) to ensure the simulator transmits the correct time signals.
+              With <strong>Time Sync: Yes</strong> (the default), the simulator automatically fetches an accurate UTC time and corrects for your local system clock, so it transmits the right time even if your computer's clock is off. If you turn sync off, or if it can't reach a time source, the simulator falls back to your computer's system clock &mdash; in that case, sync your computer's time with an accurate source (e.g., <a href="https://time.is/" target="_blank" rel="noopener">time.is</a>, or a NTP server such as <a href="https://www.ntppool.org/" target="_blank" rel="noopener">pool.ntp.org</a>) first to ensure correct signals.
             </p>
             <p>
               Use a headphone or the computer's built-in speaker. Maximize the volume for better reception, and place your radio-controlled clock close to the speaker.
@@ -217,6 +231,7 @@
         }
       })();
     </script>
+    <script src="src/timesync.js"></script>
     <script src="src/wwvb.js"></script>
     <script src="src/bpc.js"></script>
     <script src="src/jjy.js"></script>
