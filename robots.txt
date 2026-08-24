@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Point crawlers directly to your sitemap
-Sitemap: https://chuanjin-su.github.io/web-multiband/sitemap.xml
+Sitemap: https://robertlane0.github.io/web-multiband-fork/sitemap.xml

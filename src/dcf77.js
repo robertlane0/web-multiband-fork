@@ -4,12 +4,12 @@ window.TimeProtocols.dcf77 = (function() {
     // 15.500 kHz square wave. The 5th harmonic hits exactly 77.5 kHz.
     var freq = 15500;
 
-    // ADD THESE: Persistent audio nodes to prevent inter-minute gaps
+    // Persistent audio nodes to prevent inter-minute gaps
     var currentCtx = null;
     var osc = null;
     var gainNode = null;
-    
-    // ADD THESE: Hardware clock anchors to prevent System RTC drift
+
+    // Hardware clock anchors to prevent System RTC drift
     var baseOffset = 0;
     var baseStart = 0;
 
@@ -107,8 +107,6 @@ window.TimeProtocols.dcf77 = (function() {
                 osc.stop(stopTime);
             }
 
-            // DCF77 Carrier Modulation (Drops at the START of the second)
-            // DCF77 Carrier Modulation (Drops at the START of the second)
             // DCF77 Carrier Modulation (Drops at the START of the second)
             function emit(s, drop_duration) {
                 array.push(drop_duration);
