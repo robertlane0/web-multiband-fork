@@ -4,12 +4,14 @@
 
 A browser-based tool to synchronize radio-controlled watches (such as Casio Multiband watches and Citizen Atomic Timekeeping watches) by simulating longwave atomic clock radio signals directly through your computer or smartphone speakers.
 
+> This project is a fork of [`chuanjin-su/web-multiband`](https://github.com/chuanjin-su/web-multiband).
+
 ## Supported Protocols
 
 This simulator supports the major global time signal stations:
 
 * **BPC (China):** 68.5 kHz (17.125 kHz sawtooth, 4th harmonic)
-* **WWVB (USA):** 60 kHz (20 kHz square wave, 3rd harmonic)
+* **WWVB (North America):** 60 kHz (20 kHz square wave, 3rd harmonic)
 * **DCF77 (Germany/Europe):** 77.5 kHz (15.5 kHz square, 5th harmonic)
 * **MSF (UK):** 60 kHz (20 kHz square wave, 3rd harmonic)
 * **JJY (Japan):** 40 kHz (13.333 kHz square wave, 3rd harmonic)
@@ -28,7 +30,7 @@ To bypass this hardware limitation, this simulator relies on **audio clipping an
 
 ## How to Use
 
-1. **Verify Time Accuracy:** Ensure your computer's clock is perfectly synced. You can ping a public NTP server or use an online time service.
+1. **Time Sync:** By default, the simulator automatically fetches accurate UTC time from public time APIs (`worldtimeapi.org` and `timeapi.io`), corrects its signals for your system clock's drift, and re-syncs every five minutes. If you turn sync off — or if every source is unreachable — it falls back to your computer's clock, so in that case ensure the system clock itself is accurate first (e.g., via [time.is](https://time.is/) or an NTP server such as [pool.ntp.org](https://www.ntppool.org/)).
 2. **Select Protocol:** Choose the time signal your specific watch expects to receive.
 3. **Maximize Volume:** Turn your computer or smartphone volume up to **100%**. This is strictly required to induce the clipping distortion that generates the necessary radio harmonics.
 4. **Position the Watch:** Place your radio-controlled watch as close to the speaker or headphones as possible.
